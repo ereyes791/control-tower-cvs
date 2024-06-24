@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Control Tower MPV CSV Exporter
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  Export assignments to CSV on Control Tower MPV page
 // @inject-into  auto
 // @author       Esteban Reyes
@@ -65,7 +65,7 @@
         button.type = 'button';
         button.innerHTML = '<div class="css-109kszg">High Stress Path CSV</div>';
 
-        const navElement = document.querySelector('nav.css-bzzs1r');
+        const navElement = document.querySelector('nav');
         if (navElement) {
             console.log('Nav element found');
             const lastDiv = navElement.querySelectorAll('div')[7];
@@ -84,7 +84,7 @@
         }
 
         button.addEventListener('click', () => {
-            const elm = document.querySelector('#expandable-20');
+            const elm = document.querySelector('.css-1bvjzap').firstChild;
             if (!elm) {
                 console.error('#expandable-20 element not found');
                 return;
