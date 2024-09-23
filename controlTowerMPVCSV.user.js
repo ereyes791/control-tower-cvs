@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Control Tower MPV CSV Exporter
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Export assignments to CSV on Control Tower MPV page
 // @inject-into  auto
 // @author       Esteban Reyes
@@ -90,14 +90,15 @@
                 return;
             }
             const tableLists = elm.querySelectorAll('.css-1gzvnq8');
-            if (tableLists.length < 11) {
+            console.log(tableLists.length)
+            if (tableLists.length > 11) {
                 console.error('Not enough tables found');
                 return;
             }
 
-            const unloaderRaw = tableLists[8].querySelectorAll('tr');
-            const waterspiderRaw = tableLists[9].querySelectorAll('tr');
-            const endoflineRaw = tableLists[10].querySelectorAll('tr');
+            const unloaderRaw = tableLists[1].querySelectorAll('tr');
+            const waterspiderRaw = tableLists[2].querySelectorAll('tr');
+            const endoflineRaw = tableLists[7].querySelectorAll('tr');
 
             const unLoaderList = parseNodeList(unloaderRaw);
             const waterSpiderList = parseNodeList(waterspiderRaw);
